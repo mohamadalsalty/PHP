@@ -11,9 +11,11 @@ class Core{
 		$url = $this->getUrl();//to get the URL
 
 		//Look in controllers for URL
-		if(file_exists('../app/controllers/'.ucwords($url[0]).'.php')){
-			$this->currentController = ucwords($url[0]);
-			unset($url[0]);
+		if(isset($url)){
+			if(file_exists('../app/controllers/'.ucwords($url[0]).'.php')){
+				$this->currentController = ucwords($url[0]);
+				unset($url[0]);
+			}
 		}
 
 		//require the controller
